@@ -12,7 +12,7 @@
         android:text="Hello world" />
         
         <Button
-        android:id="@+id/txt_hello"
+        android:id="@+id/txt_hello_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
