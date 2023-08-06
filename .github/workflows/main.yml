@@ -50,8 +50,6 @@ jobs:
       run: git commit -m 'New release created'
     - name: Git Push
       run: |
-          GITHUB_TOKEN="${{ secrets.GSECRET }}"
-          echo $GITHUB_TOKEN
-          git remote set-url origin https://ksverchkov:$GITHUB_TOKEN@github.com/ksverchkov/AndroidBuildTemplate.git
+          git remote set-url origin https://ksverchkov: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@github.com/ksverchkov/AndroidBuildTemplate.git
           git push -u origin main
       
