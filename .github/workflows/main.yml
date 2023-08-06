@@ -50,4 +50,6 @@ jobs:
       run: git commit -m 'New release created'
     - name: Git Push
       run: git push -u origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GSECRET }}
       
