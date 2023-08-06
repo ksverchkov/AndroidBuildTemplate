@@ -37,7 +37,7 @@ jobs:
     - name: Upload release
       run: |
         appname=$(date  '+%F_%T.apk')
-        cp app/output/app-debug.apk $appname
+        cp app/build/output/app-debug.apk $appname
         gh release upload latest  $appname
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
