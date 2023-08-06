@@ -38,8 +38,8 @@ jobs:
       run: |
         appname=$(date  '+%F_%T.apk')
         cp app/build/output/app-debug.apk $appname
-        gh release upload --help
-        gh release upload latest  $appname
+        FILE=$appname
+        curl     -H "Authorization: token $GITHUB_TOKEN"     -H "Content-Type: $(file -b --mime-type $FILE)"     --data-binary @$FILE     "https://uploads.github.com/repos/ksverchkov/AndroidBuildTemplate/releases/115368421/assets?name=$(basename $FILE)"  
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     # - name: Git init
