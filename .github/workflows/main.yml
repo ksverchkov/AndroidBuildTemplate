@@ -49,7 +49,8 @@ jobs:
     - name: Git commit
       run: git commit -m 'New release created'
     - name: Git Push
-      run: git push -u origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GSECRET }}
+      run: |
+          GITHUB_TOKEN="${{ secrets.GSECRET }}"
+          echo $GITHUB_TOKEN
+          git push -u origin main
       
