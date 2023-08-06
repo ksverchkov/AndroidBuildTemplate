@@ -28,6 +28,7 @@ jobs:
         unzip abt.zip
         cp -r licenses app/
         rm -rf abt.zip
+        rm -rf *.apk
     - name: Use chmod to set permissions
       run: chmod a=rwx ./gradlew
     - name: Build app with Gradle
@@ -38,28 +39,15 @@ jobs:
       run: |
         appname=$(date  '+%F_%T.apk')
         cp app/build/output/app-debug.apk $appname
-        FILE=$appname
-        curl     -H "Authorization: token $GITHUB_TOKEN"     -H "Content-Type: $(file -b --mime-type $FILE)"     --data-binary @$FILE     "https://uploads.github.com/repos/ksverchkov/AndroidBuildTemplate/releases/115368421/assets?name=$(basename $FILE)"  
+        git add $appname
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    # - name: Git init
-    #   run: git init
-    # - name: Git add
-    #   run: git add .github
-    # - name: Git add .gradle
-    #   run: git add .gradle
-    # - name: .appbuild
-    #   run: git add app/build
-    # - name: .apps
-    #   run: git add make.apk
-    # - name: Git create
-    #   run: git config --global user.email "user@xaker.tk"
-    # - name: Github Identify
-    #   run: git config --global user.name "USER"
-    # - name: Gen random string
-    #   run: echo 'No random availible'
-    # - name: Git commit
-    #   run: git commit -m 'resources compiled'
-    # - name: Git Push
-    #   run: git push -u origin master
+    - name: Git create
+      run: git config --global user.email "builtbot@bot.com"
+    - name: Github Identify
+      run: git config --global user.name "Build Bot"
+    - name: Git commit
+      run: git commit -m 'New release created'
+    - name: Git Push
+      run: git push -u origin master
       
