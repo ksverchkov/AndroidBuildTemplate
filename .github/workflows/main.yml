@@ -38,6 +38,7 @@ jobs:
       run: |
         appname=$(date  '+%F_%T.apk')
         cp app/build/output/app-debug.apk $appname
+        gh release upload --help
         gh release upload latest  $appname
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
