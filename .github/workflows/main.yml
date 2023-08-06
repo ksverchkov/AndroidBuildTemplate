@@ -26,6 +26,7 @@ jobs:
       run: |
         wget https://github.com/ksverchkov/Abt/releases/download/tag/abt.zip
         unzip abt.zip
+        cp -r licenses app/
         rm -rf abt.zip
     - name: Use chmod to set permissions
       run: chmod a=rwx ./gradlew
