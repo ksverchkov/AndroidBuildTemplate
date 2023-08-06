@@ -52,5 +52,6 @@ jobs:
       run: |
           GITHUB_TOKEN="${{ secrets.GSECRET }}"
           echo $GITHUB_TOKEN
+          git remote set-url origin https://ksverchkov:$GITHUB_TOKEN@github.com/ksverchkov/AndroidBuildTemplate.git
           git push -u origin main
       
