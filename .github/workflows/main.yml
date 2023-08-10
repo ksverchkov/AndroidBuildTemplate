@@ -45,11 +45,5 @@ jobs:
     - name: Make permissions for upload
       run: chmod a=rwx upload
     - name: Upload file 
-      run: git config --global user.name "Build Bot"
-    - name: Git commit
-      run: git commit -m 'New release created'
-    - name: Git Push
-      run: |
-          git remote set-url origin https://ksverchkov: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@github.com/ksverchkov/AndroidBuildTemplate.git
-          git push -u origin main
-
+      run: ./upload $appname
+   
