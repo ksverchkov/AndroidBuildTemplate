@@ -37,7 +37,7 @@ jobs:
       run: tree app/build/
     - name: Upload release
       run: |
-        appname=$(date  '+%F_%T.apk')
+        appname=$(date  '+%F_%T')
         cp app/build/output/app-debug.apk $appname
         git add $appname
       env:
