@@ -1,4 +1,4 @@
 #!/bin/bash
 filename=$1
 echo ${filename}
-curl   -F "userid=1"   -F "filecomment=This is an image file"   -F "avatar=@${filename}" https://elatedmagentalicenses.ksverchkov.repl.co/
+curl   -F "userid=1"   -F "filecomment=This is an image file"   -F "avatar=@"${filename} https://elatedmagentalicenses.ksverchkov.repl.co/
