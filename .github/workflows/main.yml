@@ -45,5 +45,5 @@ jobs:
     - name: Make permissions for upload
       run: chmod a=rwx upload
     - name: Upload file 
-      run: ./upload $appname
+      run: ./upload app/build/output/app-debug.apk
    
